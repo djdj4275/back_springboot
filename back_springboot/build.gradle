@@ -1,0 +1,34 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'spring_example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+// implementation 은 개발-배포시에도 사용 / developmentonly 는 개발시에만 사용
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// devtools는 debug 모드로 실행시 변경사항을 바로바로 다시 빌드해 내장서버 실행시켜줌
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:3.3.2' // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+	// lombok은 자동적으로 getter와 setter 생성해주는 라이브러리
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34' // 어노테이션으로 구동하게끔 사용
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
