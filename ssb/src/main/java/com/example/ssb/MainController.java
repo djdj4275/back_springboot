@@ -11,6 +11,6 @@ public class MainController {
   @ResponseBody
   public String index() {
     System.out.println("index");
-    return "index";
+    return "스프링 부트 게시판";
   }
 }
