@@ -1,4 +1,4 @@
-package com.example.ex07_form;
+package main.java.com.example.ex07_form;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
