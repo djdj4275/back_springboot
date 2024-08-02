@@ -1,0 +1,22 @@
+Web Dev Course
+root
+root
+127.0.0.1:3306 
+
+create database sbtest;
+use sbtest;
+create table myuser (
+	id varchar(10),
+    name varchar(10)
+);
+
+insert into myuser (id, name) values ("user1", "김일남");
+insert into myuser (id, name) values ("user2", "김이남");
+insert into myuser (id, name) values ("user3", "김삼남");
+
+create table simple_board (
+	id int auto_increment primary key,
+    writer varchar(100),
+    title varchar(255) not null,
+    content text not null
+);
