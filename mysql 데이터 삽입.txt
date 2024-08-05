@@ -20,3 +20,5 @@ create table simple_board (
     title varchar(255) not null,
     content text not null
 );
+
+insert into simple_board (writer, title, content) values ("김일남", "제목1", "내용1");

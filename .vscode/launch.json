@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-Ex02JavaDiApplication<ex02_java_di>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.ex02_java_di.Ex02JavaDiApplication",
+      "projectName": "ex02_java_di",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
