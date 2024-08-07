@@ -92,4 +92,22 @@ ioc 컨테이너가 bean의 생명주기를 관리함.
 = 현대적 서버 사이드 java 템플릿 엔진 (최근 현업에서 많이 사용)
 = html 속성을 이용한 자연스러운 템플릿
 
+@ SQL의 주요기능
+* 데이터 정의언어 DDL (data definition language)
+: 데이터베이스와 테이블, 인덱스, 뷰, 트리거등을 생성, 구조를 정의 하는 명령어등이 존재
+ex) CREATE, ALTER, DROP
+
+* 데이터 조작언어 DML (data manipulation language)
+: 테이블에 저장된 데이터를 삽입, 업데이트, 삭제, 조회
+ex) INSERT, UPDATE, DELETE, SELECT
+
+* 데이터 제어언어 DCL (data control language)
+: 데이터베이스 사용자 권한을 관리, 제어
+ex) GRANT, REVOKE
+
+* 트랜잭션 제어언어 TCL (transaction control language)
+: 트랜잭션 관리, 데이터베이스 무결성 유지
+ex) COMMIT, ROLLBACK, SAVEPOINT
+
+
 

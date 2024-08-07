@@ -22,3 +22,7 @@ create table simple_board (
 );
 
 insert into simple_board (writer, title, content) values ("김일남", "제목1", "내용1");
+
+<world 스키마 삽입>
+mysql 공식홈페이지 documentation > more > example databases중 world database zip다운
+워크벤치에서 open sql script로 다운로드한 world sql파일 오픈후 excute

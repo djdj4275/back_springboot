@@ -1,4 +1,4 @@
-package com.example.ex15_mybatis;
+package com.example.ex19_mybatis_sql_log;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
