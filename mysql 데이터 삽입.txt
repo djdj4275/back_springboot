@@ -1,4 +1,4 @@
-Web Dev Course
+﻿Web Dev Course
 root
 root
 127.0.0.1:3306 
@@ -23,6 +23,29 @@ create table simple_board (
 
 insert into simple_board (writer, title, content) values ("김일남", "제목1", "내용1");
 
-<world 스키마 삽입>
-mysql 공식홈페이지 documentation > more > example databases중 world database zip다운
-워크벤치에서 open sql script로 다운로드한 world sql파일 오픈후 excute
+<kor_it>
+
+create database kor_it;
+
+create table students (student_id int auto_increment primary key, name varchar(100) not null, email varchar(100) not null, enrollment_date date not null);
+
+create table attendance (attendance_id int auto_increment primary key, student_id int not null, date date not null, status varchar(10) not null, foreign key (student_id) references students(student_id));
+
+create table instructor (instructor_id int auto_increment primary key, name varchar(100) not null, email varchar(100) not null, hire_date date not null);
+
+CREATE TABLE courses (course_id INT AUTO_INCREMENT PRIMARY KEY, course_name VARCHAR(100) NOT NULL, instructor_id INT NOT NULL, start_date DATE NOT NULL, end_date DATE NOT NULL, FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id));
+
+CREATE TABLE student_courses (student_id INT NOT NULL, course_id INT NOT NULL, PRIMARY KEY (student_id, course_id), FOREIGN KEY (student_id) REFERENCES Students(student_id), FOREIGN KEY (course_id) REFERENCES Courses(course_id));
+
+INSERT INTO students (name, email, enrollment_date) VALUES ('김일남', 'kim1@example.com', '2023-01-15'),('김이남', 'kim2@example.com', '2023-02-10'),('김삼남', 'kim3@example.com', '2023-03-20');
+
+INSERT INTO attendance (student_id, date, status) VALUES (1, '2024-08-01', '출'),(2, '2024-08-01', '결'),(3, '2024-08-01', '츌'),(1, '2024-08-02', '출'),(2, '2024-08-02', '출'),(3, '2024-08-02', '결');
+
+INSERT INTO Instructors (name, email, hire_date) VALUES ('김강사', 'kim@example.com', '2024-07-01'),('이강사', 'lee@example.com', '2024-07-02');
+
+INSERT INTO Courses (course_name, instructor_id, start_date, end_date) VALUES ('Java', 1, '2024-08-01', '2024-09-01'),('Python', 2, '2024-08-02', '2024-09-02');
+
+INSERT INTO student_courses (student_id, course_id) VALUES (1, 1),(2, 1),(3, 1),(1, 2),(3, 2);
+
+insert into students (name, email, enrollment_date) values 
+("김사남", "kim4@example.com", "2024-08-08");
