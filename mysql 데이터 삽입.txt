@@ -51,7 +51,8 @@ insert into students (name, email, enrollment_date) values
 ("김사남", "kim4@example.com", "2024-08-08");
 
 
-< sbtest - transaction1,2 >
+< sbtest - transaction1,2,3 >
 
 create table transaction1 (consumerid varchar(20), amount int);
 create table transaction2 (consumerid varchar(20), amount int);
+create table transaction3 (consumerid varchar(20), amount int);
