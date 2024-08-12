@@ -49,3 +49,9 @@ INSERT INTO student_courses (student_id, course_id) VALUES (1, 1),(2, 1),(3, 1),
 
 insert into students (name, email, enrollment_date) values 
 ("김사남", "kim4@example.com", "2024-08-08");
+
+
+< sbtest - transaction1,2 >
+
+create table transaction1 (consumerid varchar(20), amount int);
+create table transaction2 (consumerid varchar(20), amount int);
