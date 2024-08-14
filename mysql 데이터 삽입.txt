@@ -56,3 +56,15 @@ insert into students (name, email, enrollment_date) values
 create table transaction1 (consumerid varchar(20), amount int);
 create table transaction2 (consumerid varchar(20), amount int);
 create table transaction3 (consumerid varchar(20), amount int);
+
+<sbtest - user_list>
+create table user_list (
+	name varchar(20) primary key,
+    password varchar(100),
+    authority varchar(20),
+    enabled int
+);
+
+insert into user_list values
+('user', 'abcd', 'ROLE_USER', 1),
+('admin', 'abcd', 'ROLE_ADMIN', 2);
