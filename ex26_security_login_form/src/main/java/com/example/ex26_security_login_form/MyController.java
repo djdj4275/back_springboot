@@ -1,4 +1,4 @@
-package com.example.ex25_security;
+package com.example.ex26_security_login_form;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +26,15 @@ public class MyController {
   @RequestMapping("/admin/welcome")
   public String welcome3() {
     return "admin/welcome3";
+  }
+
+  @RequestMapping("/login-form")
+  public String loginForm() {
+    return "security/login-form";
+  }
+
+  @RequestMapping("/login-error")
+  public String loginError() {
+    return "security/login-error";
   }
 }
