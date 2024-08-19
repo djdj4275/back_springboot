@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,16 +47,24 @@ public class MyController {
   }
 
   // 게시글 추가
+  // @RequestMapping(value = "/write", method = RequestMethod.POST) // @PostMapping도 가능
+  // public ResponseEntity<Board> write(@RequestParam("writer") String writer, @RequestParam("title") String title, @RequestParam("content") String content) {
+  //   boardService.write(writer, title, content);
+
+  //   Board newBoard = new Board();
+  //   newBoard.setWriter(writer);
+  //   newBoard.setTitle(title);
+  //   newBoard.setContent(content);
+
+  //   return ResponseEntity.ok(newBoard);
+  // }
+
+  // 게시글 추가 (body로 보내기)
   @RequestMapping(value = "/write", method = RequestMethod.POST) // @PostMapping도 가능
-  public ResponseEntity<Board> write(@RequestParam("writer") String writer, @RequestParam("title") String title, @RequestParam("content") String content) {
-    boardService.write(writer, title, content);
+  public ResponseEntity<Board> write(@RequestBody Board board) {
+    boardService.write(board.getWriter(), board.getTitle(), board.getContent());
 
-    Board newBoard = new Board();
-    newBoard.setWriter(writer);
-    newBoard.setTitle(title);
-    newBoard.setContent(content);
-
-    return ResponseEntity.ok(newBoard);
+    return ResponseEntity.ok(board);
   }
 
   // 게시글 삭제 
@@ -71,5 +80,16 @@ public class MyController {
     boardService.delete(id);
 
     return ResponseEntity.noContent().build();
+  }
+
+  // 게시물 수정
+  @RequestMapping(value = "/update/{id}", method=RequestMethod.PUT)
+  public ResponseEntity<Board> update(@PathVariable int id, @RequestBody Board updatedBoard) {
+    try {
+      Board board = boardService.update(id, updatedBoard.getWriter(), updatedBoard.getTitle(), updatedBoard.getContent());
+      return ResponseEntity.ok(board);
+    } catch (RuntimeException e) {
+      return ResponseEntity.notFound().build();
+    }
   }
 }

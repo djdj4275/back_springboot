@@ -68,3 +68,7 @@ create table user_list (
 insert into user_list values
 ('user', 'abcd', 'ROLE_USER', 1),
 ('admin', 'abcd', 'ROLE_ADMIN', 2);
+
+< qnaboard >
+
+create database qnaboard;
