@@ -1,0 +1,83 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "JPA Board REST API",
+    "collectionId": "2e09fbf9-a9ac-451c-9b35-125adbb34cd6",
+    "dateExported": "2024-08-23T00:51:18.641Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "443133cc-880f-4d80-9602-6c2f59112c92",
+            "colId": "2e09fbf9-a9ac-451c-9b35-125adbb34cd6",
+            "containerId": "",
+            "name": "전체 조회",
+            "url": "http://localhost:8080/api/board/user-list",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-19T04:56:35.565Z",
+            "modified": "2024-08-19T05:04:35.697Z",
+            "headers": []
+        },
+        {
+            "_id": "ee0f4b94-639b-4f2a-b8e5-58e0463cf96f",
+            "colId": "2e09fbf9-a9ac-451c-9b35-125adbb34cd6",
+            "containerId": "",
+            "name": "개별 조회",
+            "url": "http://localhost:8080/api/board/user?id=3",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-19T05:08:46.810Z",
+            "modified": "2024-08-19T05:09:55.833Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "3",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "4e045a3d-3318-43e1-aee4-ad849126c406",
+            "colId": "2e09fbf9-a9ac-451c-9b35-125adbb34cd6",
+            "containerId": "",
+            "name": "게시글 추가",
+            "url": "http://localhost:8080/api/board/write?writer=kim14&title=title14&content=content14",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-19T05:19:10.587Z",
+            "modified": "2024-08-19T05:21:02.199Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "writer",
+                    "value": "kim14",
+                    "isPath": false
+                },
+                {
+                    "name": "title",
+                    "value": "title14",
+                    "isPath": false
+                },
+                {
+                    "name": "content",
+                    "value": "content14",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "517e334e-0746-4b4c-aa91-2c5dffbbc282",
+            "colId": "2e09fbf9-a9ac-451c-9b35-125adbb34cd6",
+            "containerId": "",
+            "name": "게시글 삭제",
+            "url": "http://localhost:8080/api/board/delete/14",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-08-19T05:28:53.571Z",
+            "modified": "2024-08-19T05:36:34.963Z",
+            "headers": []
+        }
+    ],
+    "ref": "sMAoAm5lyZjS1gLOQbBcMtXBhWVPNNJWyJ1YSmCD4NLAuPFKgAMkHBMk1d4OZZTuGkURtRoIbWsFKz21W4r8OA"
+}

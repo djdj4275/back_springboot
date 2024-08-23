@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "QnA Board REST API",
     "collectionId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
-    "dateExported": "2024-08-22T08:57:26.004Z",
+    "dateExported": "2024-08-23T06:26:29.660Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -15,7 +15,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-08-21T01:57:15.011Z",
-            "modified": "2024-08-21T06:44:55.979Z",
+            "modified": "2024-08-23T04:07:41.169Z",
             "headers": [],
             "params": [
                 {
@@ -23,7 +23,11 @@
                     "value": "0",
                     "isPath": false
                 }
-            ]
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
+            }
         },
         {
             "_id": "dd7478a8-88c3-4f13-9a0d-efcf0115b04d",
@@ -34,15 +38,19 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-08-21T04:27:56.995Z",
-            "modified": "2024-08-21T04:28:48.539Z",
+            "modified": "2024-08-23T06:21:53.617Z",
             "headers": [],
             "params": [
                 {
                     "name": "id",
-                    "value": "2",
+                    "value": "310",
                     "isPath": true
                 }
-            ]
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
+            }
         },
         {
             "_id": "13965810-0784-4a01-bb9e-d113a1ca4015",
@@ -53,12 +61,16 @@
             "method": "POST",
             "sortNum": 25000,
             "created": "2024-08-21T05:42:15.798Z",
-            "modified": "2024-08-21T05:43:57.533Z",
+            "modified": "2024-08-23T06:11:06.904Z",
             "headers": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"subject\": \"스프링부트 모델 질문입니다.\",\n  \"content\": \"id는 자동으로 생성되나요?\"\n}",
                 "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
             }
         },
         {
@@ -70,7 +82,7 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-08-21T05:01:16.648Z",
-            "modified": "2024-08-21T05:04:39.227Z",
+            "modified": "2024-08-23T05:06:40.957Z",
             "headers": [],
             "params": [
                 {
@@ -83,8 +95,148 @@
                 "type": "json",
                 "raw": "{\n  \"content\": \"네 자동으로 생성됩니다.\"\n}",
                 "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
+            }
+        },
+        {
+            "_id": "6470078b-2f5e-4493-bda7-bdfd2ad4bc47",
+            "colId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
+            "containerId": "",
+            "name": "답변 수정",
+            "url": "http://localhost:8080/answer/modify/{id}",
+            "method": "PUT",
+            "sortNum": 35000,
+            "created": "2024-08-23T05:16:15.081Z",
+            "modified": "2024-08-23T05:18:46.931Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "3",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\": \"답변 수정\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
+            }
+        },
+        {
+            "_id": "0939f3d1-8b2d-410e-9d38-70a4072a3da8",
+            "colId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
+            "containerId": "",
+            "name": "회원가입",
+            "url": "http://localhost:8080/auth/signup",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-08-23T00:28:23.248Z",
+            "modified": "2024-08-23T04:13:48.236Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"kim2\",\n  \"password\": \"1234\",\n  \"email\": \"kim2@example.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "51ffebd9-3b88-4653-8013-3e4f97be5c90",
+            "colId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
+            "containerId": "",
+            "name": "답변 삭제",
+            "url": "http://localhost:8080/answer/delete/{id}",
+            "method": "DELETE",
+            "sortNum": 45000,
+            "created": "2024-08-23T05:50:33.564Z",
+            "modified": "2024-08-23T05:51:31.042Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "3",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
+            }
+        },
+        {
+            "_id": "ade10b65-9a41-4d75-9cd5-29de739ab6d8",
+            "colId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
+            "containerId": "",
+            "name": "질문 수정",
+            "url": "http://localhost:8080/question/modify/{id}",
+            "method": "PUT",
+            "sortNum": 45000,
+            "created": "2024-08-23T06:07:59.476Z",
+            "modified": "2024-08-23T06:19:04.099Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "310",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"subject\": \"질문 제목 수정\",\n  \"content\": \"질문\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
+            }
+        },
+        {
+            "_id": "8422fee9-5986-4ca7-8036-3043348bd854",
+            "colId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
+            "containerId": "",
+            "name": "로그인",
+            "url": "http://localhost:8080/auth/signin",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-08-23T00:29:25.841Z",
+            "modified": "2024-08-23T04:26:49.811Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\": \"1234\",\n  \"email\": \"kim1@example.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "be970336-a6bf-4885-91c9-cc7b4adbe185",
+            "colId": "3defcd18-fd4d-47b3-9547-1642b8b6f02b",
+            "containerId": "",
+            "name": "질문 삭제",
+            "url": "http://localhost:8080/question/delete/{id}",
+            "method": "DELETE",
+            "sortNum": 55000,
+            "created": "2024-08-23T06:22:27.685Z",
+            "modified": "2024-08-23T06:23:22.933Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "310",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0Mzg2MDQwLCJleHAiOjE3MjQ0NzI0NDB9.csgBrCx-21SJUzNuJftFv84ngAqtVa_jQ2Jp93pvwDnsDRyOQRAjJQG-fe0B22_8DhBRrt0JvxW-UvwfcYv6lg"
             }
         }
     ],
-    "ref": "riKJbdaZuxE18ob_p0v50HauJTJvMDknQJVIkYbQzAJQ9PAqwk-PCiFkhDlyue4iqY5zcMNqGJ2n8BAFybhA0A"
+    "ref": "riKJbdaZuxE18ob_p0v50PmaPGEGqhK7BVOrhzNNj0KR5bW8eP7iVn0BXli2RCsogldtPiQDDtsbcYT7Zg-KSA"
 }
