@@ -1,7 +1,5 @@
 package com.example.ex31_jpa_qnaboard_rest_api_security.answer;
 
-import lombok.RequiredArgsConstructor;
-
 import java.security.Principal;
 
 import org.springframework.http.HttpStatus;
@@ -25,6 +23,7 @@ import com.example.ex31_jpa_qnaboard_rest_api_security.user.UserEntity;
 import com.example.ex31_jpa_qnaboard_rest_api_security.user.UserService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/answer")
 @RequiredArgsConstructor
@@ -36,12 +35,8 @@ public class AnswerController {
     private final UserService userService;
 
     @PostMapping("/create/{id}")
-    public ResponseEntity<String> createAnswer(
-        @PathVariable("id") Integer id,
-        @Valid @RequestBody AnswerDTO answerDTO,
-        BindingResult bindingResult,
-        Principal principal
-        ) {
+    public ResponseEntity<String> createAnswer(@PathVariable("id") Integer id, @Valid @RequestBody AnswerDTO answerDTO,
+            BindingResult bindingResult, Principal principal) {
 
         // 유효성 검사 실패 시 에러 메시지 반환
         if (bindingResult.hasErrors()) {
@@ -49,7 +44,7 @@ public class AnswerController {
             bindingResult.getFieldErrors().forEach(error -> errorMsg.append(error.getDefaultMessage()).append("; "));
             return new ResponseEntity<>(errorMsg.toString(), HttpStatus.BAD_REQUEST);
         }
-        
+
         try {
             Question question = this.questionService.getQuestion(id);
             UserEntity user = this.userService.getUser(principal.getName());
@@ -77,6 +72,8 @@ public class AnswerController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(authentication.getName()); // principal.getName() 대신 사용
 
+        System.out.println("authentication.getName() >>> " + authentication.getName());
+
         if (!answer.getAuthor().getId().equals(userId)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다.");
         }
@@ -89,16 +86,21 @@ public class AnswerController {
     @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> questionDelete(@PathVariable("id") Integer id) {
+
         Answer answer = this.answerService.getAnswer(id);
+
         // 현재 로그인된 사용자의 정보를 가져옴
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(authentication.getName()); // principal.getName() 대신 사용
+
         // 사용자의 ID가 같지 않으면 권한 없음
         if (!answer.getAuthor().getId().equals(userId)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "삭제 권한이 없습니다.");
         }
+
         // 질문 삭제
         this.answerService.delete(answer);
+
         // 삭제 성공 후 204 응답 코드 반환
         return new ResponseEntity<>("Answer deleted successfully", HttpStatus.NO_CONTENT);
     }

@@ -16,30 +16,32 @@ import io.jsonwebtoken.security.Keys;
 
 @Service
 public class TokenProvider {
-  private static final String SECRET_KEY = "05EuiznZ/kRKSNe1MEVEm4sSsKBAyxTc+yVWzobvHeBYKdQdZu+Jfy5pdOXJnQJql4JNMdWZs5O4423puaALb8QKzv0cgv+GXpU9S7BXq0A=";
+    private static final String SECRET_KEY = "fsrsfWaFAfqYhD2dIA0TTB2ON1RzgYK3ql1ysV7iI2wGP9UKjbg7CifNLRrLY0tynyzUOPqM5o6ot5Mrc+utMbd+VG1LCJUiTrBiVMPlbLI=";
 
-  private Key getSigningKey() {
-    return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
-  }
+    private Key getSigningKey() {
+        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+    }
 
-  public String create(UserEntity userEntity) {
-    Date expiryDate = Date.from(Instant.now().plus(1, ChronoUnit.DAYS));
+    public String create(UserEntity userEntity) {
 
-    return Jwts.builder()
-            .setSubject(String.valueOf(userEntity.getId()))
-            .setIssuedAt(new Date()) // 발행날짜
-            .setExpiration(expiryDate) // 유효기간
-            .signWith(getSigningKey(), SignatureAlgorithm.HS512) //
-            .compact(); 
-  }
+        Date expiryDate = Date.from(Instant.now().plus(1, ChronoUnit.DAYS));
 
-  public String validateAndGetUserId(String token) {
-    Claims claims = Jwts.parserBuilder()
-                      .setSigningKey(getSigningKey())
-                      .build()
-                      .parseClaimsJws(token)
-                      .getBody();
+        return Jwts.builder()
+                .setSubject(String.valueOf(userEntity.getId()))
+                .setIssuedAt(new Date())
+                .setExpiration(expiryDate)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS512)
+                .compact();
+    }
 
-    return claims.getSubject();
-  }
+    public String validateAndGetUserId(String token) {
+        Claims claims = Jwts.parserBuilder()
+            .setSigningKey(getSigningKey())
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
+        
+        return claims.getSubject();
+    }
 }
+

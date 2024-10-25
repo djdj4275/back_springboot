@@ -42,7 +42,7 @@ public class Question {
     private List<Answer> answerList;
 
     @ManyToOne
-    private UserEntity author; // 추가 (작성자)
-    private LocalDateTime modifyDate; // 추가 (수정날짜)
+    private UserEntity author; // ! 추가
 
+    private LocalDateTime modifyDate; // ! 추가
 }

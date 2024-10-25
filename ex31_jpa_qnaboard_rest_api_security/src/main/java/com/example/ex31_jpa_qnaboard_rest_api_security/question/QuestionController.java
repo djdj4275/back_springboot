@@ -1,7 +1,5 @@
 package com.example.ex31_jpa_qnaboard_rest_api_security.question;
 
-import java.security.Principal;
-
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +24,8 @@ import com.example.ex31_jpa_qnaboard_rest_api_security.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+import java.security.Principal;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/question")
@@ -46,13 +46,8 @@ public class QuestionController {
         return question;
     }
 
-    // 질문 추가
     @PostMapping("/create")
-    public ResponseEntity<String> questionCreate(
-        @Valid @RequestBody QuestionDTO questionDTO,
-        BindingResult bindingResult,
-        Principal principal
-        ) {
+    public ResponseEntity<String> questionCreate(@Valid @RequestBody QuestionDTO questionDTO, BindingResult bindingResult, Principal principal) {
 
         // 유효성 검사 실패 시 에러 메시지 반환
         if (bindingResult.hasErrors()) {
@@ -75,40 +70,51 @@ public class QuestionController {
     @PutMapping("/modify/{id}")
     public ResponseEntity<String> modifyQuestion(@PathVariable("id") Integer id,
             @Valid @RequestBody QuestionDTO questionDTO,
-            BindingResult bindingResult, Principal principal) {
+            BindingResult bindingResult) {
+
         if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
             bindingResult.getFieldErrors().forEach(error -> errorMsg.append(error.getDefaultMessage()).append("; "));
             return new ResponseEntity<>(errorMsg.toString(), HttpStatus.BAD_REQUEST);
         }
+
         Question question = this.questionService.getQuestion(id);
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(authentication.getName()); // principal.getName() 대신 사용
+
         System.out.println("question.getAuthor().getId() >>> " + question.getAuthor().getId());
         System.out.println("userId >>> " + userId);
+
         if (!question.getAuthor().getId().equals(userId)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "수정 권한이 없습니다.");
         }
+
         this.questionService.modify(question, questionDTO.getSubject(), questionDTO.getContent());
         return new ResponseEntity<>("Question modified successfully", HttpStatus.OK);
     }
 
-    // 질문 삭제
     @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> questionDelete(@PathVariable("id") Integer id) {
+
         Question question = this.questionService.getQuestion(id);
+
         // 현재 로그인된 사용자의 정보를 가져옴
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(authentication.getName()); // principal.getName() 대신 사용
+
         System.out.println(
                 "question.getAuthor().getId().equals(userId) >>> " + question.getAuthor().getId().equals(userId));
+
         // 사용자의 ID가 같지 않으면 권한 없음
         if (!question.getAuthor().getId().equals(userId)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "삭제 권한이 없습니다.");
         }
+
         // 질문 삭제
         this.questionService.delete(question);
+
         // 삭제 성공 후 204 응답 코드 반환
         return new ResponseEntity<>("Question deleted successfully", HttpStatus.NO_CONTENT);
     }

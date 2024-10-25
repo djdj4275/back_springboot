@@ -1,13 +1,12 @@
 package com.example.ex31_jpa_qnaboard_rest_api_security.user;
 
-import java.util.Optional;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.ex31_jpa_qnaboard_rest_api_security.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -28,11 +27,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    @SuppressWarnings("null")
     public UserEntity getByCredentials(final String email, final String password, final PasswordEncoder encoder) {
         final UserEntity originalUser = userRepository.findByEmail(email);
 
-        if (originalUser != null || encoder.matches(password, originalUser.getPassword())) {
+        if (originalUser != null && encoder.matches(password, originalUser.getPassword())) {
             return originalUser;
         }
 
