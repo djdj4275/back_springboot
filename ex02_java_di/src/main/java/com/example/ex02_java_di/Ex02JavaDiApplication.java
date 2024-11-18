@@ -15,10 +15,10 @@ public class Ex02JavaDiApplication {
 
 	public static void main(String[] args) {
 		// SpringApplication.run(Ex02JavaDiApplication.class, args);
-		
+
 		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-	
-		Member member1 = (Member)context.getBean("member1");
+
+		Member member1 = (Member) context.getBean("member1");
 		member1.print();
 
 		Member member2 = context.getBean("kim2", Member.class);

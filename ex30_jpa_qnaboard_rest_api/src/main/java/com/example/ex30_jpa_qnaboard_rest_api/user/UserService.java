@@ -24,6 +24,7 @@ public class UserService {
     }
 
     public UserEntity getByCredentials(final String email, final String password) {
+        System.out.println(">>> ");
         return userRepository.findByEmailAndPassword(email, password);
     }
 }

@@ -1,58 +1,52 @@
-package com.example.ex14_jdbc_board.DAO;
+package com.example.ex14_jdbc_board.dao;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.ex14_jdbc_board.DTO.SimpleBoardDTO;
+import com.example.ex14_jdbc_board.dto.SimpleBoardDTO;
 
-import java.util.List;
-
-// 여기서 SimpleBoardDAO 참조하여 구현
 @Repository
 public class SimpleBoardImpl implements SimpleBoardDAO {
-  
-  @Autowired
-  JdbcTemplate template;
+    
+    @Autowired
+    JdbcTemplate template;
 
-  @Override
-  public List<SimpleBoardDTO> listDAO() {
-    System.out.println("listDAO()");
+    @Override
+    public List<SimpleBoardDTO> listDAO() {
+        System.out.println("listDAO()");
 
-    String query = "select * from simple_board order by id asc";
+        String query = "select * from simple_board order by id desc";
+        List<SimpleBoardDTO> list = template.query(query, new BeanPropertyRowMapper<SimpleBoardDTO>(SimpleBoardDTO.class));
 
-    List<SimpleBoardDTO> list = template.query(query, new BeanPropertyRowMapper<SimpleBoardDTO>(SimpleBoardDTO.class));
+        return list;
+    }
 
-    return list;
-  }
+    public SimpleBoardDTO viewDAO(String id){
+        System.out.println("viewDAO()");
 
-  @Override
-  public SimpleBoardDTO viewDAO(String id) {
-    System.out.println("viewDAO()");
+        String query = "select * from simple_board where id = " + id;
+        System.out.println("query :: " + query);
+        SimpleBoardDTO dto = template.queryForObject(query, new BeanPropertyRowMapper<SimpleBoardDTO>(SimpleBoardDTO.class));
+        System.out.println("dto :: " + dto);
+        return dto;
+    }
 
-    String query = "select * from simple_board where id = " + id;
+    public int writeDAO(String writer, String title, String content) {
+        System.out.println("writeDAO()");
 
-    SimpleBoardDTO dto = template.queryForObject(query, new BeanPropertyRowMapper<SimpleBoardDTO>(SimpleBoardDTO.class));
+        String query = "insert into simple_board (writer, title, content) values (?, ?, ?)";
+        return template.update(query, writer, title, content);
+    }
 
-    return dto;
-  }
+    public int deleteDAO(String id) {
+        System.out.println("deleteDAO()");
 
-  @Override
-  public int writeDAO(String writer, String title, String content) {
-    System.out.println("writeDAO()");
+        String query = "delete from simple_board where id = ?";
+        return template.update(query, Integer.parseInt(id));
+    }
 
-    String query = "insert into simple_board (writer, title, content) values (?, ?, ?)";
-
-    return template.update(query, writer, title, content);
-  }
-
-  @Override
-  public int deleteDAO(String id) {
-    System.out.println("deleteDAO()");
-
-    String query = "delete from simple_board where id = ?";
-
-    return template.update(query, Integer.parseInt(id)); // 문자열로 받은 id값을 정수형으로 변환후 삭제 업데이트
-  }
 }

@@ -5,21 +5,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootTest
-public class Ex28SecurityDBApplicationTest {
+public class Ex28SecurityDbApplicationTest {
 
-  @Test
-  public void contextLoads() {
-    System.out.println("테스트");
-  }
+    @Test
+    public void contextLoads() {
+        System.out.println("테스트!");
+    }
 
-  @Test
-  public void testBCryptPasswordEncoder() {
-    String rawPassword = "abcd";
+    @Test
+    public void testBCryptPasswordEncoder() {
+        String rawPassword = "abcd";
 
-    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    String encodedPassword = encoder.encode(rawPassword);
+        String encodedPassword = encoder.encode(rawPassword);
 
-    System.out.println("Encoded password : " + encodedPassword);
-  }
+        System.out.println("Encoded password : " + encodedPassword);
+    }
 }

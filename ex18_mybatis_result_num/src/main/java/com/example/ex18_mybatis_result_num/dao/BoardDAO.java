@@ -10,11 +10,14 @@ import com.example.ex18_mybatis_result_num.dto.BoardDTO;
 
 @Mapper
 public interface BoardDAO {
+    public List<BoardDTO> listDAO();
 
-  public List<BoardDTO> listDAO(); // 전체 데이터 조회
-  public BoardDTO viewDAO(String id); // 특정 데이터 상세보기
-  public int writeDAO(Map<String, String> map); // 데이터 작성
-  public int deleteDAO(@Param("_id") String id); // 데이터 삭제
+    public BoardDTO viewDAO(String id);
 
-  public int articleCount();
-} 
+    public int writeDAO(Map<String, String> map);
+
+    public int deleteDAO(@Param("_id") String id);
+
+    public int articleCount();
+    
+}

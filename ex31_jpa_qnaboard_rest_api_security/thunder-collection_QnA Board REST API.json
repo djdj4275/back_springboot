@@ -1,0 +1,200 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "QnA Board REST API",
+    "collectionId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+    "dateExported": "2024-10-25T12:56:20.371Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c321994b-3f31-4c32-b478-643425925d11",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "질문 전체 조회",
+            "url": "http://localhost:8080/question/list?page=0",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-20T10:21:00.436Z",
+            "modified": "2024-10-24T10:21:54.661Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "0",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI5NzY1MjY0LCJleHAiOjE3Mjk4NTE2NjR9.R-DUmU2eNPtNULJlyUd-m4cV9b8t9IhX3V0gWRBd6_Azt2ROf6MKwBbjg9q03g97_RmbO5byqKHYG-wuFQC5KA"
+            }
+        },
+        {
+            "_id": "c72e6786-f54d-4471-b31f-31fcbc1476ed",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "질문 상세 조회",
+            "url": "http://localhost:8080/question/detail/313",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-20T11:17:40.419Z",
+            "modified": "2024-10-24T12:06:35.627Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI5NzY1MjY0LCJleHAiOjE3Mjk4NTE2NjR9.R-DUmU2eNPtNULJlyUd-m4cV9b8t9IhX3V0gWRBd6_Azt2ROf6MKwBbjg9q03g97_RmbO5byqKHYG-wuFQC5KA"
+            }
+        },
+        {
+            "_id": "cfed18c1-d630-4d65-9001-e0e4f96482b3",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "질문 추가",
+            "url": "http://localhost:8080/question/create",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2024-08-20T12:13:23.553Z",
+            "modified": "2024-10-24T10:24:36.718Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"subject\": \"스프링부트 모델 질문입니다.\",\n  \"content\": \"id는 자동으로 생성되나요?\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI5NzY1MjY0LCJleHAiOjE3Mjk4NTE2NjR9.R-DUmU2eNPtNULJlyUd-m4cV9b8t9IhX3V0gWRBd6_Azt2ROf6MKwBbjg9q03g97_RmbO5byqKHYG-wuFQC5KA"
+            }
+        },
+        {
+            "_id": "e7d45330-14ea-4a5f-8dc9-9be34b2710c4",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "답변 추가",
+            "url": "http://localhost:8080/answer/create/313",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-20T11:42:23.185Z",
+            "modified": "2024-10-24T12:27:07.343Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\": \"네 자동으로 생성됩니다.\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI5NzY1MjY0LCJleHAiOjE3Mjk4NTE2NjR9.R-DUmU2eNPtNULJlyUd-m4cV9b8t9IhX3V0gWRBd6_Azt2ROf6MKwBbjg9q03g97_RmbO5byqKHYG-wuFQC5KA"
+            }
+        },
+        {
+            "_id": "f1b71b84-3d9c-4d11-860e-a98b370a3ea1",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "회원 가입",
+            "url": "http://localhost:8080/auth/signup",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-08-21T11:06:07.782Z",
+            "modified": "2024-10-24T10:19:07.336Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"kim4\",\n  \"password\": \"1234\",\n  \"email\": \"kim4@example.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "21ba3810-05ba-412d-927f-663d4c5a730a",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "답변 수정",
+            "url": "http://localhost:8080/answer/modify/5",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-08-22T12:08:07.902Z",
+            "modified": "2024-08-22T12:20:42.913Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\": \"답변 수정\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0MzI2MDE2LCJleHAiOjE3MjQ0MTI0MTZ9.k06aMvYeinScYchHSaUS8tDXxz5Xy-fPUGc4plQSp006uIitJv3OucLyUTKXtG-4p1BaZFmeBKd5bpANctwgfw"
+            }
+        },
+        {
+            "_id": "74ac3c8e-50d4-4f23-b166-cbc81023f582",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "질문 수정",
+            "url": "http://localhost:8080/question/modify/306",
+            "method": "PUT",
+            "sortNum": 45000,
+            "created": "2024-08-22T12:40:22.321Z",
+            "modified": "2024-08-22T12:57:23.528Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"subject\": \"질문 제목 수정\",\n  \"content\": \"id는 자동으로 생성되나요?\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0MzI2MDE2LCJleHAiOjE3MjQ0MTI0MTZ9.k06aMvYeinScYchHSaUS8tDXxz5Xy-fPUGc4plQSp006uIitJv3OucLyUTKXtG-4p1BaZFmeBKd5bpANctwgfw"
+            }
+        },
+        {
+            "_id": "191b70c3-8e0f-4db2-ae04-50b74750ae89",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "로그인",
+            "url": "http://localhost:8080/auth/signin",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-08-21T12:01:27.954Z",
+            "modified": "2024-08-22T11:26:07.441Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"kim1@example.com\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "159a3ebe-f085-4ac9-8b54-274fcb2cca4c",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "답변 삭제",
+            "url": "http://localhost:8080/answer/delete/5",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-08-22T12:31:50.257Z",
+            "modified": "2024-08-22T12:32:51.350Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0MzI2MDE2LCJleHAiOjE3MjQ0MTI0MTZ9.k06aMvYeinScYchHSaUS8tDXxz5Xy-fPUGc4plQSp006uIitJv3OucLyUTKXtG-4p1BaZFmeBKd5bpANctwgfw"
+            }
+        },
+        {
+            "_id": "59f31817-938f-494c-862d-9780c514d53e",
+            "colId": "7cef1572-7aa6-4319-91e4-8b3052f7f242",
+            "containerId": "",
+            "name": "질문 삭제",
+            "url": "http://localhost:8080/question/delete/306",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-08-22T12:49:42.602Z",
+            "modified": "2024-08-22T12:57:39.240Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzI0MzI2MDE2LCJleHAiOjE3MjQ0MTI0MTZ9.k06aMvYeinScYchHSaUS8tDXxz5Xy-fPUGc4plQSp006uIitJv3OucLyUTKXtG-4p1BaZFmeBKd5bpANctwgfw"
+            }
+        }
+    ],
+    "ref": "D3gV2TdTZy2hiDoR-L-oeKt8pG4CKAh69FdK1uqaIUDRVgPyHLZEVr574d5xnl4iN_1sD9INN0UV9x68E9-ipA"
+}

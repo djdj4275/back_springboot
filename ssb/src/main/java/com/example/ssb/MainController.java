@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
-
-  @GetMapping("/sbb")
-  @ResponseBody
-  public String index() {
-    System.out.println("index");
-    return "스프링 부트 게시판";
-  }
+    
+    @GetMapping("/sbb")
+    @ResponseBody
+    public String index() {
+        System.out.println("index");
+        return "안녕하세요 스프링 부트 게시판에 오신 것을 환영합니다.";
+    }
 }

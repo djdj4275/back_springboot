@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.ex19_mybatis_sql_log.jdbc.MyUserDAO">
-  <select id="list" resultType="com.example.ex19_mybatis_sql_log.jdbc.MyUserDTO">select id, name from myuser</select>
-
+    <select id="list" resultType="com.example.ex19_mybatis_sql_log.jdbc.MyUserDTO">select id, name from myuser</select>
 </mapper>
-
-<!-- tip. mapper라고 자동완성 치면 알아서 템플릿 나옴 -->
-<!-- namespace는 xml과 연동될 mapper의 경로 (이때 슬래쉬가 아닌 .으로 구분) -->
-<!-- select의 id값은 구현해둔 mapper의 추상메소드 이름, resultType은 DTO구조체 -->

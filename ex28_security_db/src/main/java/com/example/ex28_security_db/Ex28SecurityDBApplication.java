@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ex28SecurityDBApplication {
+public class Ex28SecurityDbApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Ex28SecurityDBApplication.class, args);
+		SpringApplication.run(Ex28SecurityDbApplication.class, args);
 	}
 
 }

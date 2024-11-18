@@ -1,23 +1,24 @@
-package main.java.com.example.ex07_form;
+package com.example.ex07_form;
 
+// 커맨드 객체
 public class Member {
-  private String id;
-  private String name;
+    private String id;
+    private String name;
 
-  public String getId() {
-    return this.id;
-  }
+    public String getId() {
+        return this.id;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

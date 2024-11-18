@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor // 생성자 없이 호출하는경우
-@AllArgsConstructor // 모든 생성자를 호출하는경우
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "site_users")
 public class UserEntity {

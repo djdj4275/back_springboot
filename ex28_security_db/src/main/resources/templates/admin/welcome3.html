@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
 </head>
+
 <body>
-  <h1>Welcome : Admin</h1>
+    <h1>Welcome: Admin</h1>
 
-  <form id="logoutForm"th:action="@{/logout}"method="post"style="display: none">
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-  </form>
+    <form id="logoutForm" th:action="@{/logout}" method="post" style="display: none">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    </form>
 
-  <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
+    <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
 </body>
+
 </html>
